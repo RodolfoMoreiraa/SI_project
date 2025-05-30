@@ -1,78 +1,70 @@
-Projeto de Segurança Informática
-Descrição:
-Este projeto é uma aplicação de segurança informática que permite a cifragem, decifragem, assinatura digital, verificação de assinaturas digitais, cálculo de hashes e verificação de integridade de arquivos. 
-A aplicação é projetada para ser fácil de usar, com várias funcionalidades automatizadas que são ativadas quando arquivos são movidos para pastas específicas monitoradas pela aplicação.
+🔐 Projeto de Segurança Informática
+Uma aplicação em Python que automatiza operações fundamentais de segurança informática através da monitorização de pastas. Com funcionalidades como cifragem, assinatura digital, hashes e verificação de integridade, esta aplicação permite aplicar técnicas de segurança de forma prática e transparente.
 
-Estrutura de Pastas:
-A aplicação cria e monitoriza as seguintes pastas:
+📦 Funcionalidades Principais
+🔒 Cifragem e Decifragem de Arquivos
 
-. Encrypt: Cifra os arquivos colocados nesta pasta, gerando automaticamente uma chave de cifragem e um vetor de inicialização. Os arquivos cifrados e os arquivos com a chave e o vetor são movidos para a pasta Encrypted.
-. Encrypted: Armazena os arquivos cifrados e os arquivos com a chave (key-file.txt) e o vetor de inicialização (iv-file.txt).
-. Decrypt: Decifra os arquivos colocados nesta pasta, usando os arquivos de chave e vetor correspondentes. Os arquivos decifrados são movidos para a pasta Decrypted.
-. Decrypted: Armazena os arquivos decifrados.
-. Sign: Assina digitalmente os arquivos colocados nesta pasta, usando uma chave privada. Os arquivos assinados são movidos para a pasta Signed.
-. Assinado: Armazena os arquivos assinados.
-. Verify: Verifica as assinaturas digitais dos arquivos colocados nesta pasta, usando uma chave pública. Os arquivos com assinaturas válidas são movidos para a pasta Valid-Sign, enquanto os arquivos com assinaturas inválidas são movidos para a pasta Not-Valid-Sign.
-. Valid-Sign: Armazena os arquivos com assinaturas válidas.
-. Not-Valid-Sign: Armazena os arquivos com assinaturas inválidas.
-. Digest: Calcula os valores de hash dos arquivos colocados nesta pasta. Os arquivos e seus hashes são movidos para a pasta Hashes.
-. Hashes: Armazena os arquivos e seus valores de hash.
-. Integrity: Verifica a integridade dos arquivos colocados nesta pasta, comparando-os com os valores de hash fornecidos. Os arquivos com integridade verificada são movidos para a pasta Int-Valid, enquanto os arquivos com integridade comprometida são movidos para a pasta Int-not-Valid.
-. Int-Valid: Armazena os arquivos com integridade verificada.
-. Int-not-Valid: Armazena os arquivos com integridade comprometida.
+✍️ Assinatura Digital e Verificação
 
-Funcionalidades
-. Cifrar Arquivos:
-Gera automaticamente uma chave de cifragem e um vetor de inicialização.
-Move os arquivos cifrados e os arquivos de chave e vetor para a pasta Encrypted.
+🧮 Cálculo de Hashes
 
-. Decifrar Arquivos:
-Usa os arquivos de chave e vetor para decifrar arquivos.
-Move os arquivos decifrados para a pasta Decrypted.
+🛡️ Verificação de Integridade de Arquivos
 
-. Assinatura Digital:
-Usa uma chave privada para assinar digitalmente arquivos.
-Move os arquivos assinados para a pasta Signed.
+🗂️ Estrutura de Pastas
+A aplicação monitoriza as seguintes pastas para executar automaticamente as operações:
 
-. Verificação de Assinatura Digital:
-Usa uma chave pública para verificar assinaturas digitais.
-Move os arquivos com assinaturas válidas para a pasta Valid_Sign.
-Move os arquivos com assinaturas inválidas para a pasta NotValid_Sign.
+Pasta	Função
+Encrypt/	Arquivos colocados aqui serão cifrados automaticamente
+Encrypted/	Guarda os arquivos cifrados, a chave (key-file.txt) e o vetor (iv-file.txt)
+Decrypt/	Decifra os arquivos usando a chave e vetor correspondentes
+Decrypted/	Guarda os arquivos já decifrados
+Sign/	Assina digitalmente os arquivos com chave privada
+Signed/	Guarda os arquivos assinados
+Verify/	Verifica a assinatura digital com chave pública
+Valid-Sign/	Arquivos com assinatura válida
+Not-Valid-Sign/	Arquivos com assinatura inválida
+Digest/	Calcula o hash dos arquivos
+Hashes/	Guarda os arquivos e os seus valores de hash
+Integrity/	Verifica a integridade dos arquivos (com base nos hashes)
+Int-Valid/	Arquivos com integridade confirmada
+Int-not-Valid/	Arquivos com integridade comprometida
 
-. Cálculo de Hashes:
-Calcula os valores de hash dos arquivos.
-Move os arquivos e seus valores de hash para a pasta Hashes.
+⚙️ Tecnologias Utilizadas
+Python – Linguagem principal
 
-. Verificação de Integridade:
-Verifica a integridade dos arquivos comparando-os com os valores de hash fornecidos.
-Move os arquivos com integridade verificada para a pasta Integrity_Valid.
-Move os arquivos com integridade comprometida para a pasta IntegrityNot_Valid.
+Watchdog – Monitorização em tempo real das pastas
 
-Tecnologias Utilizadas:
-. Python: Linguagem de programação principal usada para desenvolver a aplicação.
-. Watchdog: Biblioteca usada para monitorar as pastas e detectar mudanças.
-. PyCryptodome: Biblioteca usada para operações criptográficas.
+PyCryptodome – Operações criptográficas seguras
 
-Como Usar:
-Instalação das Dependências:
-Instale as bibliotecas necessárias usando o comando:
-. pip install watchdog pycryptodome
+▶️ Como Usar
+1. Instalação das Dependências
+bash
+Copiar
+Editar
+pip install watchdog pycryptodome
+2. Criar a Estrutura de Pastas
+Certifica-te que todas as pastas listadas acima estão criadas no diretório do projeto.
 
-Estrutura de Pastas:
-Certifique-se de que todas as pastas necessárias estão criadas conforme a estrutura descrita acima.
-Execução dos Scripts:
-Execute cada script Python em terminais separados para iniciar os daemons que monitoram as pastas:
+3. Executar os Scripts
+Em terminais separados (ou separadores no terminal), executa cada um dos scripts para iniciar os daemons de monitorização:
+
+bash
+Copiar
+Editar
 python cifrar.py
 python decifrar.py
 python assinar.py
 python verificar_assinatura.py
 python calcular_hash.py
 python verificar_integridade.py
+4. Usar a Aplicação
+Basta mover os arquivos para as pastas respetivas consoante a operação que pretendes realizar. O sistema faz o resto de forma automática. 🚀
 
-Movimentação de Arquivos:
-Mova os arquivos para as pastas correspondentes conforme a operação desejada.
+🔐 Segurança e Melhorias Futuras
+🔐 Controlo de Acesso às pastas sensíveis
 
-Segurança e Melhorias:
-. Controle de Acesso: Restringir o acesso a pastas críticas.
-. Verificação de Integridade: Implementar verificações de integridade para arquivos críticos.
-. Logs e Auditoria: Manter registros detalhados das operações feitas.
+🛠️ Logs de Auditoria para rastrear todas as operações
+
+🧾 Verificações Adicionais de Integridade para ficheiros críticos
+
+📁 Interface gráfica (futura) para facilitar a utilização
