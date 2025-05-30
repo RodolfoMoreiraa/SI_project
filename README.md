@@ -1,7 +1,9 @@
 🔐 Projeto de Segurança Informática
+
 Uma aplicação em Python que automatiza operações fundamentais de segurança informática através da monitorização de pastas. Com funcionalidades como cifragem, assinatura digital, hashes e verificação de integridade, esta aplicação permite aplicar técnicas de segurança de forma prática e transparente.
 
 📦 Funcionalidades Principais
+
 🔒 Cifragem e Decifragem de Arquivos
 
 ✍️ Assinatura Digital e Verificação
